@@ -1,4 +1,4 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn,} from "typeorm";
 
 @Entity()
 export class Mail {
@@ -15,10 +15,10 @@ export class Mail {
     content: string;
 
     @Column()
-    time_start: Date;
+    time_start: number;
 
     @Column()
-    time_end: Date;
+    time_end: number;
 
     @Column()
     type: number;

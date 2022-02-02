@@ -5,6 +5,7 @@ import {InjectRepository} from "@nestjs/typeorm";
 import {SchedulerRegistry} from '@nestjs/schedule';
 import {CronJob} from 'cron';
 import {MailerService} from '@nestjs-modules/mailer';
+import {timetrans} from "../../utils/time"
 
 @Injectable()
 export class MailService {
@@ -30,31 +31,28 @@ export class MailService {
 
 
     createMail(dto) {
-        const date = new Date(dto.time_end)
+        const {email, content, time_end} = dto
 
-        var d = new Date(dto.time_end);
-        var datetime=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+        const date = new Date(timetrans(time_end))
         const job = new CronJob(date, () => {
             this.mailerService.sendMail({
-                to: dto.email,
+                to: email,
                 from: "raseluxun@163.com",
-                subject: dto.content,
+                subject: content,
                 text: "222"
             })
                 .then(() => {
-                    Logger.log("邮件id:" + dto.id + " 发送时间:" +
-                        datetime + " 状态:发送成功")
+                    Logger.log("邮件id:" + dto.id + " 状态:发送成功")
                     this.MailRepository.update(dto.id, {type: 1})
                 })
-                .catch(() => {
-                    Logger.log("邮件id:" + dto.id + " 发送时间:" +
-                        datetime + " 状态:发送失败")
+                .catch((err) => {
+                    Logger.log("邮件id:" + dto.id + " 状态:发送失败" + " 原因" + err)
                     this.MailRepository.update(dto.id, {type: 2})
                 })
         })
 
 
-        this.schedulerRegistry.addCronJob(dto.id, job);
+        this.schedulerRegistry.addCronJob(dto.id + time_end, job);
         job.start();
 
 

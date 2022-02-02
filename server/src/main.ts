@@ -6,6 +6,7 @@ import {TransformInterceptor} from './common/interceptor/transform.interceptor';
 import {DocumentBuilder, SwaggerModule} from "@nestjs/swagger";
 import {MailService} from "./modules/mail/mail.service";
 async function bootstrap() {
+    // 创建Nest应用程序实例
     const app = await NestFactory.create(AppModule);
 
     // 全局使用拦截器
@@ -14,8 +15,13 @@ async function bootstrap() {
     // 全局使用异常过滤器
     app.useGlobalFilters(new HttpExecptionFilter())
 
-    app.setGlobalPrefix("api/v" + globals.API_VERSION); // 设置全局前缀
+    // 设置全局前缀
 
+    app.setGlobalPrefix("api/v" + globals.API_VERSION);
+
+
+    // 处理跨域
+    app.enableCors();
 
     // 使用 Swagger 文档
     const options = new DocumentBuilder()
@@ -26,11 +32,14 @@ async function bootstrap() {
 
     const document = SwaggerModule.createDocument(app,options);
     SwaggerModule.setup('doc',app,document);
-
-    await app.listen(80);
+// 监听3000端口
+    await app.listen(8080);
     const mailService = app.get(MailService);
 
-    const cronnjob = mailService.init()
+    // const cronnjob = mailService.init()
+
+
+
 
 }
 

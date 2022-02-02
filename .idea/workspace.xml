@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8205960a-8ab7-4d3a-9d99-5b27ed9dbc29" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/front/component/Footer/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/component/Header/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/component/Sider/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/pages/mail.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/pages/public.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/pages/write.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/utils/axios.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/utils/mail.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/utils/time.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/modules/mail/mail.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/mail/mail.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/shared/entities/mail.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/shared/entities/mail.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/time.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/time.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="24QV3Kw6xnYGV4XzG1DSJup4cKw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.last.introduce.type" value="CONST" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/front/utils" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="D:\Program Files (x86)\WebStorm 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\myWeb\nodejs\Nestjs_TimePost\front\utils" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\myWeb\nodejs\Nestjs_TimePost\front\utils" />
+      <recent name="E:\myWeb\nodejs\Nestjs_TimePost\server\src\common\intercept" />
+      <recent name="E:\myWeb\nodejs\Nestjs_TimePost\server\src\common\transform.intercept" />
+      <recent name="E:\myWeb\nodejs\Nestjs_TimePost\server\src\shared" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name=".eslintrc.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/server/.eslintrc.js" working-dir="$PROJECT_DIR$/server">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js..eslintrc.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8205960a-8ab7-4d3a-9d99-5b27ed9dbc29" name="Changes" comment="" />
+      <created>1643562598849</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1643562598849</updated>
+      <workItem from="1643562600173" duration="3342000" />
+      <workItem from="1643616688440" duration="422000" />
+      <workItem from="1643617131588" duration="201000" />
+      <workItem from="1643617348887" duration="19446000" />
+      <workItem from="1643703140605" duration="1229000" />
+      <workItem from="1643721625607" duration="3380000" />
+      <workItem from="1643725049073" duration="10511000" />
+      <workItem from="1643793948826" duration="570000" />
+      <workItem from="1643794524443" duration="20777000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
