@@ -18,36 +18,22 @@ import {getMailsList} from "../utils/mail"
 import {useState} from "react";
 import {timetrans} from "../utils/time"
 import * as dayjs from 'dayjs'
-
 const Home: NextPage = (props: any) => {
-    let [dataSource, setData]: any = useState([]);
-
-    dataSource = props.data
-    // for (let i in dataSource) {
-    //     // dataSource[i]["time_end"] = format(dataSource[i]["time_end"] * 1000 +'',"yyyy-MM-dd hh:mm:ss")
-    //     console.log(dayjs.unix(parseInt(dataSource[i]["time_end"])).format("YYYY-MM-DD HH:mm:ss"))
-    //
-    // }
-
+    let [dataSource, setData]:any = useState([]);
+    dataSource = props.data.data
     const {Content} = Layout
     const columns = [
         {
             title: '寄件人名称',
             dataIndex: 'name',
-            render: (text: string, record: any, index: number) => {
-                return (
-                    <div>
-                        <Avatar size="small" color={record.avatarBg} style={{marginRight: 4}}>
-                            {typeof text === 'string' && text.slice(0, 1)}
-                        </Avatar>
-                        {text}
-                    </div>
-                );
-            }
         },
         {
             title: '邮箱',
             dataIndex: 'email',
+        },
+        {
+            title: '内容',
+            dataIndex: 'content',
         },
         {
             title: '发送时间',
@@ -56,21 +42,7 @@ const Home: NextPage = (props: any) => {
         {
             title: '寄往时间',
             dataIndex: 'time_end',
-        },
-        {
-            title: '状态',
-            dataIndex: 'type',
-            render: (text: string, record: any, index: number) => {
-
-                if (text == '0') {
-                    return <Button theme='solid' type='tertiary' style={{marginRight: 8}}>等待发送</Button>
-                } else if (text == '1') {
-                    return <Button theme='solid' type='primary' style={{marginRight: 8}}>发送成功</Button>
-                } else {
-                    return <Button theme='solid' type='danger' style={{marginRight: 8}}>发送失败</Button>
-                }
-            }
-        },
+        }
     ];
 
     return (
@@ -81,18 +53,19 @@ const Home: NextPage = (props: any) => {
                 style={{
                     padding: '24px',
                     backgroundColor: 'var(--semi-color-bg-0)',
+
                 }}
             >
                 <div
                     style={{
                         borderRadius: '10px',
                         border: '1px solid var(--semi-color-border)',
-
+                        width:'1080px',
                         padding: '32px',
                     }}
                 >
 
-                    <Table columns={columns} dataSource={dataSource}/>
+                    <p>关于</p>
                 </div>
             </Content>
             <Footer/>
@@ -104,12 +77,8 @@ const Home: NextPage = (props: any) => {
 export async function getStaticProps() {
     // Call an external API endpoint to get posts.
     // You can use any data fetching library
+    const {data} = await getMailsList()
 
-    const {data} = (await getMailsList()).data
-    for (let i in data) {
-        data[i]["time_end"] = timetrans(data[i]["time_end"] )
-        data[i]["time_start"] = timetrans(data[i]["time_start"] )
-    }
 
     // By returning { props: { posts } }, the Blog component
     // will receive `posts` as a prop at build time

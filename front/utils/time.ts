@@ -1,4 +1,3 @@
-
 export function timetrans(date:any){
     // @ts-ignore
     var date = new Date(date*1000);//如果date为13位不需要乘1000

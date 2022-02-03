@@ -23,18 +23,26 @@ const Home: NextPage = () => {
                     text: 'TimePost 时光邮局'
                 }}
                 footer={
-                    <Dropdown
-                        position="bottomRight"
-                        render={
-                            <Dropdown.Menu>
-                                <Dropdown.Item>详情</Dropdown.Item>
-                                <Dropdown.Item>退出</Dropdown.Item>
-                            </Dropdown.Menu>
-                        }
-                    >
-                        <Avatar size="small" color='light-blue' style={{margin: 4}}>BD</Avatar>
-                        <span>Bytedancer</span>
-                    </Dropdown>
+                    <div suppressHydrationWarning={true}>
+                        {process.browser &&
+                        <Dropdown
+                            position="bottomRight"
+                            render={
+                                <Dropdown.Menu>
+                                    <Dropdown.Item>详情</Dropdown.Item>
+                                    <Dropdown.Item>退出</Dropdown.Item>
+                                </Dropdown.Menu>
+                            }
+                        >
+                            <Avatar
+                                alt="a cat"
+                                size="small"
+                                src="/author.jpg"
+                                style={{ margin: 4 }}
+                            />
+                            <span>周树人</span>
+                        </Dropdown>}
+                    </div>
                 }
             />
         </div>
