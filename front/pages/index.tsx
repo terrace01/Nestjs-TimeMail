@@ -1,6 +1,20 @@
 import type {NextPage} from 'next'
 
-import {Layout, Nav, Button, Breadcrumb, Skeleton, Avatar, Table} from '@douyinfe/semi-ui';
+import {
+    Layout,
+    Nav,
+    Button,
+    Breadcrumb,
+    Skeleton,
+    Avatar,
+    Table,
+    Empty,
+    Row,
+    Col,
+    Card,
+    Banner,
+    Typography
+} from '@douyinfe/semi-ui';
 import {
     IconBell,
     IconHelpCircle,
@@ -8,7 +22,7 @@ import {
     IconHome,
     IconHistogram,
     IconLive,
-    IconSetting
+    IconSetting,
 } from '@douyinfe/semi-icons';
 import Siderr from '../component/Sider'
 import Header from '../component/Header'
@@ -17,59 +31,49 @@ import {Head} from "next/document";
 import {getMailsList} from "../utils/mail"
 import {useState} from "react";
 import {timetrans} from "../utils/time"
-import * as dayjs from 'dayjs'
-const Home: NextPage = (props: any) => {
-    let [dataSource, setData]:any = useState([]);
-    dataSource = props.data.data
-    const {Content} = Layout
-    const columns = [
-        {
-            title: '寄件人名称',
-            dataIndex: 'name',
-        },
-        {
-            title: '邮箱',
-            dataIndex: 'email',
-        },
-        {
-            title: '内容',
-            dataIndex: 'content',
-        },
-        {
-            title: '发送时间',
-            dataIndex: 'time_start',
-        },
-        {
-            title: '寄往时间',
-            dataIndex: 'time_end',
-        }
-    ];
+import {IllustrationConstruction, IllustrationConstructionDark} from '@douyinfe/semi-illustrations';
 
+const Home: NextPage = (props: any) => {
+    let [dataSource, setData]: any = useState([]);
+    const {Content} = Layout
+    const {Title} = Typography;
     return (
 
-            <Layout>
-                <Header/>
-                <Content
-                    style={{
-                        padding: '24px',
-                        backgroundColor: 'var(--semi-color-bg-0)',
+        <Layout>
+            <Header/>
+            <div className="grid grid-flex">
+                <Row type="flex" justify="center">
+                    <Col span={12}>
+                        <Content
+                            style={{
+                                padding: '24px',
+                                backgroundColor: 'var(--semi-color-bg-0)',
+                            }}
+                        >
 
-                    }}
-                >
-                    <div
-                        style={{
-                            borderRadius: '10px',
-                            border: '1px solid var(--semi-color-border)',
-                            width:'1080px',
-                            padding: '32px',
-                        }}
-                    >
+                            <br/> <br/>
+                            <Title style={{margin: '8px 0'}}>花有重开日 人无再少年</Title>
 
-                        <p>送你一朵小红花</p>
-                    </div>
-                </Content>
-                <Footer/>
-            </Layout>
+                            <br/> <br/>
+
+                            <iframe style={{
+                                width: '100%',
+                                height: '600px',
+                                border: '0'
+
+                            }} src="//player.bilibili.com/player.html?aid=680968412" scrolling="no">
+
+                            </iframe>
+                        </Content>
+
+                    </Col>
+
+                </Row>
+
+            </div>
+            <Footer/>
+        </Layout>
+
 
     )
 }

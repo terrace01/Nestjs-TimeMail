@@ -16,23 +16,18 @@ import Footer from '../component/Footer'
 import {Head} from "next/document";
 import {getMailsList} from "../utils/mail"
 import {useState} from "react";
-import {timetrans} from "../utils/time"
-import * as dayjs from 'dayjs'
+import {timetrans, regEmail} from "../utils/time"
 
 const Home: NextPage = (props: any) => {
     let [dataSource, setData]: any = useState([]);
 
     dataSource = props.data
-    // for (let i in dataSource) {
-    //     // dataSource[i]["time_end"] = format(dataSource[i]["time_end"] * 1000 +'',"yyyy-MM-dd hh:mm:ss")
-    //     console.log(dayjs.unix(parseInt(dataSource[i]["time_end"])).format("YYYY-MM-DD HH:mm:ss"))
-    //
-    // }
+
 
     const {Content} = Layout
     const columns = [
         {
-            title: '寄件人名称',
+            title: '姓名',
             dataIndex: 'name',
             render: (text: string, record: any, index: number) => {
                 return (
@@ -48,6 +43,9 @@ const Home: NextPage = (props: any) => {
         {
             title: '邮箱',
             dataIndex: 'email',
+            render: (text: string) => {
+                return regEmail(text)
+            }
         },
         {
             title: '发送时间',
@@ -60,16 +58,16 @@ const Home: NextPage = (props: any) => {
         {
             title: '状态',
             dataIndex: 'type',
-            render: (text: string, record: any, index: number) => {
-
-                if (text == '0') {
-                    return <Button theme='solid' type='tertiary' style={{marginRight: 8}}>等待发送</Button>
-                } else if (text == '1') {
-                    return <Button theme='solid' type='primary' style={{marginRight: 8}}>发送成功</Button>
-                } else {
-                    return <Button theme='solid' type='danger' style={{marginRight: 8}}>发送失败</Button>
-                }
-            }
+            // render: (text: string, record: any, index: number) => {
+            //
+            //     if (text == '0') {
+            //         return <Button theme='solid' type='tertiary' style={{marginRight: 8}}>等待发送</Button>
+            //     } else if (text == '1') {
+            //         return <Button theme='solid' type='primary' style={{marginRight: 8}}>发送成功</Button>
+            //     } else {
+            //         return <Button theme='solid' type='danger' style={{marginRight: 8}}>发送失败</Button>
+            //     }
+            // }
         },
     ];
 
@@ -77,24 +75,21 @@ const Home: NextPage = (props: any) => {
 
         <Layout>
             <Header/>
-            <Content
-                style={{
-                    padding: '24px',
-                    backgroundColor: 'var(--semi-color-bg-0)',
-                }}
-            >
-                <div
-                    style={{
-                        borderRadius: '10px',
-                        border: '1px solid var(--semi-color-border)',
+            <div className="container">
+                <div className="row">
+                    <div className="col-12">
+                        <div
+                            style={{
 
-                        padding: '32px',
-                    }}
-                >
+                                padding: '10px',
+                            }}
+                        >
 
-                    <Table columns={columns} dataSource={dataSource}/>
+                          <div>  <Table columns={columns} dataSource={dataSource}/></div>
+                        </div>
+                    </div>
                 </div>
-            </Content>
+            </div>
             <Footer/>
         </Layout>
 
@@ -107,8 +102,8 @@ export async function getStaticProps() {
 
     const {data} = (await getMailsList()).data
     for (let i in data) {
-        data[i]["time_end"] = timetrans(data[i]["time_end"] )
-        data[i]["time_start"] = timetrans(data[i]["time_start"] )
+        data[i]["time_end"] = timetrans(data[i]["time_end"])
+        data[i]["time_start"] = timetrans(data[i]["time_start"])
     }
 
     // By returning { props: { posts } }, the Blog component

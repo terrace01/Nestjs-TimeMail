@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8205960a-8ab7-4d3a-9d99-5b27ed9dbc29" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/front/pages/about.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/public/author.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/utils/question.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/component/Footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/component/Footer/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/component/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/component/Header/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/pages/about.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/pages/about.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/pages/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/pages/mail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/pages/mail.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/pages/public.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/pages/public.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/pages/write.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/pages/write.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/styles/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/utils/time.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/utils/time.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/shared/entities/mail.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/shared/entities/mail.entity.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +29,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="24QV3Kw6xnYGV4XzG1DSJup4cKw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -91,7 +88,8 @@
       <workItem from="1643725049073" duration="10511000" />
       <workItem from="1643793948826" duration="570000" />
       <workItem from="1643794524443" duration="23988000" />
-      <workItem from="1643872233486" duration="16827000" />
+      <workItem from="1643872233486" duration="32080000" />
+      <workItem from="1643974516276" duration="8901000" />
     </task>
     <servers />
   </component>

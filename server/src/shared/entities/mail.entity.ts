@@ -22,4 +22,7 @@ export class Mail {
 
     @Column()
     type: number;
+
+    @Column()
+    is_public: number;
 }

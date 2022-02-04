@@ -9,3 +9,24 @@ export function timetrans(date:any){
     var s = (date.getSeconds() <10 ? '0' + date.getSeconds() : date.getSeconds());
     return Y+M+D+h+m+s;
 }
+export function regEmail(email:any) {
+    if (String (email).indexOf ('@') > 0) {
+        let newEmail, str = email.split('@'), _s = '';
+
+        if (str[0].length > 4) {
+            _s = str[0].substr (0, 2);
+            for (let i = 0; i < str[0].length - 4; i++) {
+                _s += '*';
+            }
+        } else {
+            _s = str[0].substr (0, 1);
+            for (let i = 0; i < str[0].length - 1; i++) {
+                _s += '*';
+            }
+        }
+        newEmail = _s + '@' + str[1];
+        return newEmail;
+    } else {
+        return email;
+    }
+}

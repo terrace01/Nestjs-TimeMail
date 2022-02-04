@@ -1,6 +1,6 @@
 import type {NextPage} from 'next'
 
-import {Layout, Nav, Button, Breadcrumb, Skeleton, Avatar, Table} from '@douyinfe/semi-ui';
+import {Layout, Nav, Button, Breadcrumb, Skeleton, Avatar, Table, Card} from '@douyinfe/semi-ui';
 import {
     IconBell,
     IconHelpCircle,
@@ -15,15 +15,46 @@ import Header from '../component/Header'
 import Footer from '../component/Footer'
 import {Head} from "next/document";
 import {getMailsList} from "../utils/mail"
-import React, {FC, Fragment, useState} from "react";
+import React, {Fragment, useState} from "react";
 import {timetrans} from "../utils/time"
-import * as dayjs from 'dayjs'
-import {InputGroup, Input, InputNumber, AutoComplete, DatePicker, Select, Checkbox} from '@douyinfe/semi-ui';
+import {
+    InputGroup,
+    Input,
+    InputNumber,
+    AutoComplete,
+    DatePicker,
+    Select,
+    Checkbox,
+    Row,
+    Col,
+    Form,
+    TextArea,
+    TagInput,
+} from '@douyinfe/semi-ui';
 import {Editor} from '@tinymce/tinymce-react';
 
 const Write: NextPage = () => {
 
-
+    const {
+        Section,
+        Input,
+        InputNumber,
+        AutoComplete,
+        Select,
+        TreeSelect,
+        Cascader,
+        DatePicker,
+        TimePicker,
+        TextArea,
+        CheckboxGroup,
+        Checkbox,
+        RadioGroup,
+        Radio,
+        Slider,
+        Rating,
+        Switch,
+        TagInput
+    } = Form;
     const {Content} = Layout
     const columns = [
         {
@@ -69,72 +100,135 @@ const Write: NextPage = () => {
         menubar: false, // 最上方的菜单
         branding: false, // 水印“Powered by TinyMCE”
         convert_urls: false,//去除URL转换
+        resize: false,
         images_upload_handler: () => {
 
         },
     }
+
     return (
 
         <Layout>
 
             <Header/>
-            <Content
-                style={{
-                    padding: '24px',
-                    backgroundColor: 'var(--semi-color-bg-0)',
-                }}
-            >
+          <div className="container">
+              <div className="row">
+                  <div className="col-12">
 
-                <div
-                    style={{
-                        borderRadius: '10px',
-                        border: '1px solid var(--semi-color-border)',
-                        padding: '32px',
-                    }}
-                >
+                          <Form
+                              // getFormApi={this.getFormApi}
+                              // initValues={initValues}
+                              style={{padding: 10, width: '100%'}}
+                              onValueChange={(v) => console.log(v)}
+                          >
+                              <Card>
+                                  <Section text={'胶囊（Fly）'}>
+                                      <Row>
+                                          <Col span={12}>
+                                              <Input
+                                                  field="name"
+                                                  label="名称（Input）"
+                                                  trigger='blur'
+                                              />
+                                          </Col>
 
+                                      </Row>
+                                      <Row>
+                                          <Col span={12}>
+                                              <Input
+                                                  field="email"
+                                                  label="邮箱（Email）"
+                                                  trigger='blur'
+                                              />
+                                          </Col>
+                                      </Row>
 
-                    <InputGroup>
+                                      <Row>
+                                          <Col span={12}>
 
-                        <Input prefix="你的姓名" showClear></Input>
-                    </InputGroup>
-                    <br/><br/>
-                    <InputGroup>
-                        <Input prefix="发件邮箱" showClear></Input>
-                    </InputGroup>
-                    <br/><br/>
-
-
-                    {/*https://github.com/yjose/reactjs-popup/issues/215*/}
-                    <div suppressHydrationWarning={true}>
-                        {process.browser &&
-                        <Fragment>
-
-                            {/*<DatePicker type="dateTime" density="compact" insetLabel="结束日期" style={{width: 240}}/>*/}
-                            {/*<DatePicker insetLabel="结束日期" style={{ width: 240 }} />*/}
-                            <InputGroup>
-                                <DatePicker insetLabel="结束日期" type="dateRange" density="compact"/>
-                            </InputGroup>
-                            <br/><br/>
-                            <InputGroup>
-                                <Checkbox aria-label="Checkbox 示例"
-                                          extra='选中后, 信的内容将在 公开信 中展示, 所有人都可以浏览和评论'>是否公开</Checkbox>
-                            </InputGroup>
-                        </Fragment>}
-                    </div>
-                    <br/><br/>
-                    <Editor
-                        id="tiny"
-                        inline={false}  // false：经典编辑模式；true:行内编辑模式
-                        apiKey='vnpn1q20ecyjyluk0ffkf2cprue1doeigvxnjhb9xkznwflx'
-                        init={{
-                            ...editorObj
-                        }}
-                    />
+                                              {/*https://github.com/yjose/reactjs-popup/issues/215*/}
+                                              <div suppressHydrationWarning={true}>
+                                                  {process.browser &&
+                                                  <Fragment>
 
 
-                </div>
-            </Content>
+
+                                                      <DatePicker type="dateTime"  label='日期（SendTime)' />
+
+                                                  </Fragment>}
+                                              </div>
+
+                                          </Col>
+
+                                      </Row>
+
+                                      <Row>
+
+                                          <Col span={12}>
+
+                                              {/*https://github.com/yjose/reactjs-popup/issues/215*/}
+
+                                              <div suppressHydrationWarning={true}>
+                                                  {process.browser &&
+                                                  <Fragment>
+                                                      <Checkbox value="false" field="agree" noLabel={true}
+                                                                extra='选中后, 信的内容将在 公开信 中展示, 所有人都可以浏览和评论'>是否公开</Checkbox>
+
+                                                  </Fragment>}
+                                              </div>
+                                          </Col>
+                                      </Row>
+
+                                      <Row>
+                                          <Col span={24}>
+
+                                              <Editor
+                                                  id="tiny"
+                                                  inline={false}  // false：经典编辑模式；true:行内编辑模式
+                                                  apiKey='vnpn1q20ecyjyluk0ffkf2cprue1doeigvxnjhb9xkznwflx'
+                                                  init={{
+                                                      ...editorObj
+                                                  }}
+                                              />
+
+                                          </Col>
+                                      </Row>
+
+                                  </Section>
+
+
+                                  <Row>
+                                      <Col span={24}>
+
+                                          <div suppressHydrationWarning={true}>
+                                              {process.browser &&
+                                              <Fragment>
+                                                  <Checkbox value="false" field="agree" noLabel={true}>
+                                                      我已阅读并清楚相关规定（I agree）
+                                                  </Checkbox>
+                                              </Fragment>}
+                                          </div>
+
+
+                                      </Col>
+                                  </Row>
+                                  <Row type="flex" justify="end">
+
+
+                                      <div>   <Button type="primary" htmlType="submit"
+                                                      className="btn-margin-right">提交(Apply)</Button></div>
+
+
+                                  </Row>
+                              </Card>
+
+
+                          </Form>
+
+                  </div>
+              </div>
+          </div>
+
             <Footer/>
         </Layout>
 
