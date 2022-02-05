@@ -20,7 +20,7 @@ export class Mail {
     @Column()
     time_end: number;
 
-    @Column()
+    @Column({   default: () => 0,})
     type: number;
 
     @Column()

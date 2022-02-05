@@ -6,7 +6,6 @@ import {SchedulerRegistry} from '@nestjs/schedule';
 import {CronJob} from 'cron';
 import {MailerService} from '@nestjs-modules/mailer';
 import {timetrans} from "../../utils/time"
-
 @Injectable()
 export class MailService {
     constructor(
@@ -19,13 +18,9 @@ export class MailService {
 
 
     async getAll() {
-        const res = await this.MailRepository.find()
-        // for (let i in res){
-        //     console.log(res[i]["time_start"].toLocaleDateString())
-        //     console.log(res[i]["time_start"].toLocaleString())
-        // }
-        // res['time_start'] = utc2beijing( res['time_start'])
-        // res['time_end'] = utc2beijing( res['time_end'])
+
+        const res = await this.MailRepository.createQueryBuilder('mail').orderBy('mail.time_start').getMany()
+
         return res
     }
 
@@ -52,14 +47,15 @@ export class MailService {
         })
 
 
-        this.schedulerRegistry.addCronJob(dto.id + time_end, job);
+
+        this.schedulerRegistry.addCronJob(Math.floor(Math.random()*10) + '', job);
         job.start();
 
 
         return this.MailRepository.save(dto)
     }
 
-    deleteMailByMailId(id) {
+    deleteMailById(id) {
         return this.MailRepository.delete(id)
     }
 

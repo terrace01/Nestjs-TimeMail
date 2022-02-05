@@ -15,6 +15,7 @@ export class MailController {
 
     @Post()
     createMail(@Body() dto:CreateMailDto) {
+        console.log(dto)
         return this.mailServer.createMail(dto);
     }
 
@@ -23,14 +24,14 @@ export class MailController {
         return this.mailServer.updateMailByMailId(dto)
     }
 
+
     @Delete(':id')
-    deleteMailByMailId(@Param('id') id:number) {
-        return this.mailServer.deleteMailByMailId(id)
+    deleteMailById(@Param('id') id:number) {
+        return this.mailServer.getMailByMailId(id);
     }
 
     @Get(':id')
     getMailByMailId(@Param('id') id:number) {
-        console.log(id)
         return this.mailServer.getMailByMailId(id);
     }
 

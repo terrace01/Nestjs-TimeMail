@@ -124,7 +124,7 @@ const Public: NextPage = (props: any) => {
                                                 }
 
                                             >
-                                                {item.content}
+                                                <div style={{paddingLeft: 15, textIndent: 2}} dangerouslySetInnerHTML={{__html:  item.content}} />
                                             </Card>
 
                                         </>

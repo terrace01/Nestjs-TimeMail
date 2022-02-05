@@ -1,5 +1,8 @@
-import {getRequest} from '../utils/axios'
+import {getRequest, postRequest} from '../utils/axios'
 //获取精品歌单
-export const getMailsList= () => {
+export const getMailsList = () => {
     return getRequest('mail').then()
+}
+export const sendMail = (params:any) => {
+    return postRequest('mail', { ...params }).then()
 }
