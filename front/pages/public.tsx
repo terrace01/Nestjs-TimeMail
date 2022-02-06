@@ -40,21 +40,29 @@ const Public: NextPage = (props: any) => {
     const {Content} = Layout
     const {Meta} = Card;
     const {Title, Paragraph, Image} = Skeleton;
-
+    const [page, setPage] = useState(1);
+    const [total,setTotal] = useState()
     useEffect(() => {
-        handleGetMail()
 
+        onPageChange(page)
     }, []);
-    const handleGetMail = async () => {
-        const {data} = (await getMailsList()).data
-        for (let i in data) {
-            data[i]["time_end"] = timetrans(data[i]["time_end"])
-            data[i]["time_start"] = timetrans(data[i]["time_start"])
-        }
 
-        setData(data);
+
+
+    const onPageChange = async (currentPage:any)=>{
+
+        setPage(currentPage);
+        console.log(currentPage)
+        const {data} = (await getMailsList((currentPage * 2)-2)).data
+        for (let i in data.result) {
+            data.result[i]["time_end"] = timetrans(data.result[i]["time_end"])
+            data.result[i]["time_start"] = timetrans(data.result[i]["time_start"])
+        }
+        setData(data.result);
+        setTotal(data.total)
         setLoading(false);
     }
+
     return (
 
         <Layout>
@@ -124,7 +132,8 @@ const Public: NextPage = (props: any) => {
                                                 }
 
                                             >
-                                                <div style={{paddingLeft: 15, textIndent: 2}} dangerouslySetInnerHTML={{__html:  item.content}} />
+                                                <div style={{paddingLeft: 15, textIndent: 2}}
+                                                     dangerouslySetInnerHTML={{__html: item.content}}/>
                                             </Card>
 
                                         </>
@@ -132,10 +141,14 @@ const Public: NextPage = (props: any) => {
                                 }
                             </div>
                         </div>
-                            <Pagination
-                                total={200}
-                            >
-                            </Pagination>
+                        <Pagination
+                            total={total}
+                             pageSize={2}
+                            currentPage={page}
+
+                            onPageChange={onPageChange}>
+
+                        </Pagination>
 
                     </div>
                 </div>

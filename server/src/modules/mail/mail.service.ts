@@ -17,13 +17,33 @@ export class MailService {
     }
 
 
-    async getAll() {
+    async getAll(skip) {
 
-        const res = await this.MailRepository.createQueryBuilder('mail').orderBy('mail.time_start').getMany()
 
-        return res
+
+        const [result, total] = await this.MailRepository.findAndCount(
+            {
+                where: {is_public:1 }, order: { time_start: "DESC" },
+                take: 2,
+                skip: skip
+            }
+        );
+
+        return {result, total}
     }
 
+    // async getAll() {
+    //
+    //
+    //
+    //
+    //
+    //     return this.MailRepository.find(
+    //             {
+    //                 where: {is_public:1 }, order: { time_start: "DESC" },
+    //             }
+    //         );
+    // }
 
     createMail(dto) {
         const {email, content, time_end} = dto

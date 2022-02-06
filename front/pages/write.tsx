@@ -242,17 +242,17 @@ const Write: NextPage = () => {
                                     <Row>
                                         <Col span={24}>
 
-                                            <Editor
-                                                onEditorChange={(v: any) => {
-                                                    setTinymce(v)
-                                                }}
-                                                id="tiny"
-                                                inline={false}  // false：经典编辑模式；true:行内编辑模式
-                                                apiKey='vnpn1q20ecyjyluk0ffkf2cprue1doeigvxnjhb9xkznwflx'
-                                                init={{
-                                                    ...editorObj
-                                                }}
-                                            />
+                                            {/*<Editor*/}
+                                            {/*    onEditorChange={(v: any) => {*/}
+                                            {/*        setTinymce(v)*/}
+                                            {/*    }}*/}
+                                            {/*    id="tiny"*/}
+                                            {/*    inline={false}  // false：经典编辑模式；true:行内编辑模式*/}
+                                            {/*    apiKey='vnpn1q20ecyjyluk0ffkf2cprue1doeigvxnjhb9xkznwflx'*/}
+                                            {/*    init={{*/}
+                                            {/*        ...editorObj*/}
+                                            {/*    }}*/}
+                                            {/*/>*/}
 
                                         </Col>
                                     </Row>

@@ -33,8 +33,7 @@ import {useState} from "react";
 import {timetrans} from "../utils/time"
 import {IllustrationConstruction, IllustrationConstructionDark} from '@douyinfe/semi-illustrations';
 
-const Home: NextPage = (props: any) => {
-    let [dataSource, setData]: any = useState([]);
+const Home: NextPage = (y) => {
     const {Content} = Layout
     const {Title} = Typography;
     return (
@@ -76,21 +75,6 @@ const Home: NextPage = (props: any) => {
 
 
     )
-}
-
-export async function getStaticProps() {
-    // Call an external API endpoint to get posts.
-    // You can use any data fetching library
-    const {data} = await getMailsList()
-
-
-    // By returning { props: { posts } }, the Blog component
-    // will receive `posts` as a prop at build time
-    return {
-        props: {
-            data,
-        },
-    }
 }
 
 export default Home
