@@ -27,8 +27,7 @@ import {
 import Siderr from '../component/Sider'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
-import {Head} from "next/document";
-import {getMailsList} from "../utils/mail"
+import {PageSEO} from '../component/PageSeo'
 import {useState} from "react";
 import {timetrans} from "../utils/time"
 import {IllustrationConstruction, IllustrationConstructionDark} from '@douyinfe/semi-illustrations';
@@ -36,43 +35,49 @@ import {IllustrationConstruction, IllustrationConstructionDark} from '@douyinfe/
 const Home: NextPage = (y) => {
     const {Content} = Layout
     const {Title} = Typography;
+
     return (
 
-        <Layout>
-            <Header/>
-            <div className="grid grid-flex">
-                <Row type="flex" justify="center">
-                    <Col span={12}>
-                        <Content
-                            style={{
-                                padding: '24px',
-                                backgroundColor: 'var(--semi-color-bg-0)',
-                            }}
-                        >
+        <>
+            <PageSEO title={"时光邮局 - TimePost"} description={"时光邮局"}/>
+            <Layout>
 
-                            <br/> <br/>
-                            <Title style={{margin: '8px 0'}}>花有重开日 人无再少年</Title>
 
-                            <br/> <br/>
+                <Header/>
+                <div className="grid grid-flex">
+                    <Row type="flex" justify="center">
+                        <Col span={12}>
+                            <Content
+                                style={{
+                                    padding: '24px',
+                                    backgroundColor: 'var(--semi-color-bg-0)',
+                                }}
+                            >
 
-                            <iframe style={{
-                                width: '100%',
-                                height: '600px',
-                                border: '0'
+                                <br/> <br/>
+                                <Title style={{margin: '8px 0'}}>花有重开日 人无再少年</Title>
 
-                            }} src="//player.bilibili.com/player.html?aid=680968412" scrolling="no">
+                                <br/> <br/>
 
-                            </iframe>
-                        </Content>
+                                <iframe style={{
+                                    width: '100%',
+                                    height: '600px',
+                                    border: '0'
 
-                    </Col>
+                                }} src="//player.bilibili.com/player.html?aid=680968412" scrolling="no">
 
-                </Row>
+                                </iframe>
+                            </Content>
 
-            </div>
-            <Footer/>
-        </Layout>
+                        </Col>
 
+                    </Row>
+
+                </div>
+                <Footer/>
+            </Layout>
+
+        </>
 
     )
 }

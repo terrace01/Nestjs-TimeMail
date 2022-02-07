@@ -8,9 +8,16 @@ export class MailController {
     constructor(private mailServer: MailService) {
     }
 
+
+    @Get('/')
+    getAlL() {
+        return this.mailServer.getAll();
+    }
+
+
     @Get(':skip')
-    getAlL(@Param('skip') skip: number) {
-        return this.mailServer.getAll(skip);
+    getAllBySkip(@Param('skip') skip: number) {
+        return this.mailServer.getAllBySkip(skip);
     }
 
     //

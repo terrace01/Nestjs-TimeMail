@@ -27,8 +27,7 @@ import {
 import Siderr from '../component/Sider'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
-import {Head} from "next/document";
-import {getMailsList} from "../utils/mail"
+import {PageSEO} from '../component/PageSeo'
 import {useEffect, useMemo, useState} from "react";
 import {timetrans} from "../utils/time"
 import questionData from '../utils/question'
@@ -43,34 +42,35 @@ const Public: NextPage = (props: any) => {
 
 
     return (
-
-        <Layout>
-            <Header/>
-<div className="container">
-    <div className="row">
-        <div className="col-12">
-            <Collapse accordion>
-                {
-                    questionData.map((item: any, index: any) => {
-                        return <>
-
-
-                            <Collapse.Panel header={item.title} itemKey={index}>
-                                <p>{item.content}</p>
-                            </Collapse.Panel>
+        <>
+            <PageSEO title={"关于 - 时光邮局"} description={"关于 - 时光邮局"}/>
+            <Layout>
+                <Header/>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <Collapse accordion>
+                                {
+                                    questionData.map((item: any, index: any) => {
+                                        return <>
 
 
-                        </>
-                    })
-                }
-            </Collapse>
+                                            <Collapse.Panel header={item.title} itemKey={index}>
+                                                <p>{item.content}</p>
+                                            </Collapse.Panel>
 
-        </div>
-    </div>
-</div>
-            <Footer/>
-        </Layout>
 
+                                        </>
+                                    })
+                                }
+                            </Collapse>
+
+                        </div>
+                    </div>
+                </div>
+                <Footer/>
+            </Layout>
+        </>
     )
 }
 

@@ -1,10 +1,10 @@
 import {getRequest, postRequest} from '../utils/axios'
 //获取精品歌单
-// export const getMailsList = () => {
-//     return getRequest(`mail`).then()
-// }
+export const getMailsAll = () => {
+    return getRequest(`mail`).then()
+}
 
-export const getMailsList = (params:any) => {
+export const getMailBySkip = (params:any) => {
     return getRequest(`mail/${params}`).then()
 }
 

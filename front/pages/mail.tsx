@@ -13,10 +13,10 @@ import {
 import Siderr from '../component/Sider'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
-import {Head} from "next/document";
-import {getMailsList} from "../utils/mail"
+import {getMailsAll} from "../utils/mail"
 import {useState} from "react";
 import {timetrans, regEmail} from "../utils/time"
+import {PageSEO} from '../component/PageSeo'
 
 const Home: NextPage = (props: any) => {
     let [dataSource, setData]: any = useState([]);
@@ -72,27 +72,28 @@ const Home: NextPage = (props: any) => {
     ];
 
     return (
+        <>
+            <PageSEO title={"邮件列表 - 时光邮局"} description={"邮件列表 - 时光邮局"}/>
+            <Layout>
+                <Header/>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <div
+                                style={{
 
-        <Layout>
-            <Header/>
-            <div className="container">
-                <div className="row">
-                    <div className="col-12">
-                        <div
-                            style={{
+                                    padding: '10px',
+                                }}
+                            >
 
-                                padding: '10px',
-                            }}
-                        >
-
-                          <div>  <Table columns={columns} dataSource={dataSource}/></div>
+                                <div><Table columns={columns} dataSource={dataSource}/></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <Footer/>
-        </Layout>
-
+                <Footer/>
+            </Layout>
+        </>
     )
 }
 
@@ -100,7 +101,8 @@ export async function getStaticProps() {
     // Call an external API endpoint to get posts.
     // You can use any data fetching library
 
-    const {data} = (await getMailsList()).data
+    const {data} = (await getMailsAll()).data
+
     for (let i in data) {
         data[i]["time_end"] = timetrans(data[i]["time_end"])
         data[i]["time_start"] = timetrans(data[i]["time_start"])

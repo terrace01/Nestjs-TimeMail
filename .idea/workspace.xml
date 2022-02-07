@@ -2,16 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8205960a-8ab7-4d3a-9d99-5b27ed9dbc29" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/front/component/PageSeo/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/utils/config/dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/utils/config/prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/utils/config/servicePath.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/common/config/env.dev.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/config/dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/config/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/config/prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/utils/getDataConfig.util.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.pnpm-debug.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/pages/about.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/pages/about.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/pages/mail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/pages/mail.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/pages/public.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/pages/public.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/pages/write.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/pages/write.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/utils/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/utils/axios.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/utils/mail.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/utils/mail.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/modules/mail/mail.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/mail/mail.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/modules/mail/mail.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/mail/mail.service.ts" afterDir="false" />
     </list>
@@ -23,16 +36,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="24QV3Kw6xnYGV4XzG1DSJup4cKw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -47,7 +57,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/front/utils" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/src" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="ts.external.directory.path" value="D:\Program Files (x86)\WebStorm 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -55,6 +65,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\myWeb\nodejs\Nestjs_TimePost\server\src" />
+      <recent name="E:\myWeb\nodejs\Nestjs_TimePost\server\src\utils\config" />
       <recent name="E:\myWeb\nodejs\Nestjs_TimePost\front\utils" />
       <recent name="E:\myWeb\nodejs\Nestjs_TimePost\front\public" />
     </key>
@@ -97,6 +109,10 @@
       <workItem from="1644063729714" duration="11377000" />
       <workItem from="1644139339541" duration="953000" />
       <workItem from="1644142812310" duration="6930000" />
+      <workItem from="1644159726960" duration="146000" />
+      <workItem from="1644163306378" duration="1602000" />
+      <workItem from="1644226419734" duration="13092000" />
+      <workItem from="1644242494582" duration="1333000" />
     </task>
     <servers />
   </component>

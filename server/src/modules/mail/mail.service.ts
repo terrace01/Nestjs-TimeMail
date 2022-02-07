@@ -17,9 +17,7 @@ export class MailService {
     }
 
 
-    async getAll(skip) {
-
-
+    async getAllBySkip(skip) {
 
         const [result, total] = await this.MailRepository.findAndCount(
             {
@@ -28,10 +26,18 @@ export class MailService {
                 skip: skip
             }
         );
-
         return {result, total}
     }
 
+    async getAll() {
+
+
+        return await this.MailRepository.find(
+            {order: { time_start: "DESC" },
+
+            }
+        );
+    }
     // async getAll() {
     //
     //

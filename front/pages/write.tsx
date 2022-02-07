@@ -13,8 +13,6 @@ import {
 import Siderr from '../component/Sider'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
-import {Head} from "next/document";
-import {getMailsList, sendMail} from "../utils/mail"
 import React, {Fragment, useState} from "react";
 import {timetrans} from "../utils/time"
 import {
@@ -32,6 +30,8 @@ import {
     TagInput,
 } from '@douyinfe/semi-ui';
 import {Editor} from '@tinymce/tinymce-react';
+import {sendMail} from '../utils/mail'
+import {PageSEO} from '../component/PageSeo'
 
 const Write: NextPage = () => {
 
@@ -117,6 +117,7 @@ const Write: NextPage = () => {
         type: 0,
         is_public: false
     })
+    const [agree,setAgree] = useState(false)
     const [tinymce, setTinymce] = useState('')
 
 
@@ -135,166 +136,180 @@ const Write: NextPage = () => {
         a = a.replace(/\//g, '-');//替换2017/05/03 为    2017-05-03
 
 
-
         const d = new Date();
-        const datetime=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+        const datetime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
 
 
         // @ts-ignore
-        const nowdate = new Date(datetime)/ 1000; //把当前日期变成时间戳
+        const nowdate = new Date(datetime) / 1000; //把当前日期变成时间戳
 
         // @ts-ignore
         const senddate = (new Date(mail.time_end)) / 1000;//把当前日期变成时间戳
 
-        const res:any = {...mail, content: tinymce,time_start: nowdate, time_end: senddate, is_public: mail.is_public ? 1 : 0}
+        const res: any = {
+            ...mail,
+            content: tinymce,
+            time_start: nowdate,
+            time_end: senddate,
+            is_public: mail.is_public ? 1 : 0
+        }
 
 
-        if (res.name == '' || res.time_end == '' || res.content == '' || res.email == '' || isEmail(res.email) == false) {
+        if (res.name == '' || res.time_end == '' || res.content == '' || res.email == '') {
             Toast.error("信息未填写完整，请检查")
+        } else if (isEmail(res.email) == false) {
+            Toast.error("wdnmd 邮箱格式不对")
+        } else if (nowdate >= senddate) {
+            Toast.error("禁止选择之前的时间")
+        }else if (!agree){
+            Toast.error("请同意(我已阅读并清楚相关规定)")
         } else {
 
-            // const {data} = await sendMail(ccc)
-            // if (data.code !== '200') return Toast.error("发送失败")
-            console.log(nowdate)
+            const {data} = await sendMail(res)
+            if (data.code !== '200') return Toast.error("发送失败")
         }
 
     }
 
     return (
+        <>
+            <PageSEO title={"写一封信 - 时光邮局"} description={"写一封信 - 时光邮局"}/>
+            <Layout>
 
-        <Layout>
+                <Header/>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
 
-            <Header/>
-            <div className="container">
-                <div className="row">
-                    <div className="col-12">
+                            <Form
+                                // getFormApi={this.getFormApi}
+                                // initValues={initValues}
+                                onSubmit={values => handleSubmit(values)}
+                                style={{padding: 10, width: '100%'}}
+                                onValueChange={(v: any) =>
+                                    setMail({
+                                        ...v,
+                                    })
+                                }
+                            >
+                                <Card>
+                                    <Section text={'胶囊（Fly）'}>
+                                        <Row>
 
-                        <Form
-                            // getFormApi={this.getFormApi}
-                            // initValues={initValues}
-                            onSubmit={values => handleSubmit(values)}
-                            style={{padding: 10, width: '100%'}}
-                            onValueChange={(v: any) =>
-                                setMail({
-                                    ...v,
-                                })
-                            }
-                        >
-                            <Card>
-                                <Section text={'胶囊（Fly）'}>
-                                    <Row>
-                                        <Col span={12}>
-                                            <Input
-                                                field="name"
-                                                label="名称（Input）"
-                                                trigger='blur'
-                                            />
-                                        </Col>
+                                                <Input
+                                                    field="name"
+                                                    label="名称（Input）"
+                                                    trigger='blur'
+                                                >
+                                                </Input>
 
-                                    </Row>
-                                    <Row>
-                                        <Col span={12}>
-                                            <Input
-                                                field="email"
-                                                label="邮箱（Email）"
-                                                trigger='blur'
+                                        </Row>
+                                        <Row>
 
-                                            />
-                                        </Col>
-                                    </Row>
+                                                <Input
+                                                    field="email"
+                                                    label="邮箱（Email）"
+                                                    trigger='blur'
 
-                                    <Row>
-                                        <Col span={12}>
+                                                >
+                                                </Input>
 
-                                            {/*https://github.com/yjose/reactjs-popup/issues/215*/}
-                                            <div suppressHydrationWarning={true}>
-                                                {process.browser &&
-                                                <Fragment>
+                                        </Row>
+
+                                        <Row>
+                                            <Col span={12}>
+
+                                                {/*https://github.com/yjose/reactjs-popup/issues/215*/}
+                                                <div suppressHydrationWarning={true}>
+                                                    {process.browser &&
+                                                    <Fragment>
 
 
-                                                    <DatePicker type="dateTime" label='日期（SendTime)' field="time_end"/>
+                                                        <DatePicker type="dateTime" label='日期（SendTime)'
+                                                                    field="time_end"/>
 
-                                                </Fragment>}
-                                            </div>
+                                                    </Fragment>}
+                                                </div>
 
-                                        </Col>
+                                            </Col>
 
-                                    </Row>
+                                        </Row>
 
-                                    <Row>
+                                        <Row>
 
-                                        <Col span={12}>
+                                            <Col span={12}>
 
-                                            {/*https://github.com/yjose/reactjs-popup/issues/215*/}
+                                                {/*https://github.com/yjose/reactjs-popup/issues/215*/}
 
-                                            <div suppressHydrationWarning={true}>
-                                                {process.browser &&
-                                                <Fragment>
-                                                    <Checkbox field="is_public" noLabel={true}
-                                                              extra='选中后, 信的内容将在 公开信 中展示, 所有人都可以浏览和评论'
-                                                    >是否公开</Checkbox>
+                                                <div suppressHydrationWarning={true}>
+                                                    {process.browser &&
+                                                    <Fragment>
+                                                        <Checkbox field="is_public" noLabel={true}
+                                                                  extra='选中后, 信的内容将在 公开信 中展示, 所有人都可以浏览和评论'
+                                                        >是否公开</Checkbox>
 
-                                                </Fragment>}
-                                            </div>
-                                        </Col>
-                                    </Row>
+                                                    </Fragment>}
+                                                </div>
+                                            </Col>
+                                        </Row>
+
+                                        <Row>
+                                            <Col span={24}>
+
+                                                <Editor
+                                                    onEditorChange={(v: any) => {
+                                                        setTinymce(v)
+                                                    }}
+                                                    id="tiny"
+                                                    inline={false}  // false：经典编辑模式；true:行内编辑模式
+                                                    apiKey='vnpn1q20ecyjyluk0ffkf2cprue1doeigvxnjhb9xkznwflx'
+                                                    init={{
+                                                        ...editorObj
+                                                    }}
+                                                />
+
+                                            </Col>
+                                        </Row>
+
+                                    </Section>
+
 
                                     <Row>
                                         <Col span={24}>
 
-                                            {/*<Editor*/}
-                                            {/*    onEditorChange={(v: any) => {*/}
-                                            {/*        setTinymce(v)*/}
-                                            {/*    }}*/}
-                                            {/*    id="tiny"*/}
-                                            {/*    inline={false}  // false：经典编辑模式；true:行内编辑模式*/}
-                                            {/*    apiKey='vnpn1q20ecyjyluk0ffkf2cprue1doeigvxnjhb9xkznwflx'*/}
-                                            {/*    init={{*/}
-                                            {/*        ...editorObj*/}
-                                            {/*    }}*/}
-                                            {/*/>*/}
+                                            <div suppressHydrationWarning={true}>
+                                                {process.browser &&
+                                                <Fragment>
+                                                    <Checkbox field="agree" value="false" noLabel={true} onChange={(v:any)=>{
+                                                   setAgree(!v) }
+                                                    }>
+                                                        我已阅读并清楚相关规定（I agree）
+                                                    </Checkbox>
+                                                </Fragment>}
+                                            </div>
+
 
                                         </Col>
                                     </Row>
-
-                                </Section>
-
-
-                                <Row>
-                                    <Col span={24}>
-
-                                        <div suppressHydrationWarning={true}>
-                                            {process.browser &&
-                                            <Fragment>
-                                                <Checkbox value="false" noLabel={true}>
-                                                    我已阅读并清楚相关规定（I agree）
-                                                </Checkbox>
-                                            </Fragment>}
-                                        </div>
+                                    <Row type="flex" justify="end">
 
 
-                                    </Col>
-                                </Row>
-                                <Row type="flex" justify="end">
+                                        <div><Button onClick={submit} type="primary"
+                                                     htmlType="submit"
+                                                     className="btn-margin-right">提交(Apply)</Button></div>
 
 
-                                    <div><Button onClick={submit} type="primary"
-                                                 htmlType="submit"
-                                                 className="btn-margin-right">提交(Apply)</Button></div>
+                                    </Row>
+                                </Card>
 
+                            </Form>
 
-                                </Row>
-                            </Card>
-
-                        </Form>
-
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <Footer/>
-        </Layout>
-
+            </Layout>
+        </>
     )
 }
 
