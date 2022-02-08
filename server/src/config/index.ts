@@ -14,6 +14,6 @@ console.log(env)
 
 export default () => {
     return yaml.load(
-        readFileSync(join(__dirname, `./${configFileNameObj[env]}.yml`), 'utf8'),
+        readFileSync(join(__dirname, `./dev.yml`), 'utf8'),
     ) as Record<string, any>;
 };

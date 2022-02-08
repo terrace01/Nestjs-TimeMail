@@ -11,7 +11,7 @@ export class Mail {
     @Column()
     email: string;
 
-    @Column()
+    @Column('text')
     content: string;
 
     @Column()

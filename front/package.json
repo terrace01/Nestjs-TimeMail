@@ -2,7 +2,7 @@
   "name": "front",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV='development' next dev",
+    "dev": "cross-env NODE_ENV='development' next dev -p 80",
     "build": "cross-env NODE_ENV='production' next build && next export",
     "start": "next start",
     "test": "NEXT_PUBLIC_DOMAIN_ENV=test next build && next export"

@@ -1,9 +1,10 @@
 import {MailerModule} from '@nestjs-modules/mailer';
+import { EjsAdapter } from '@nestjs-modules/mailer/dist/adapters/ejs.adapter';
 import {Module} from '@nestjs/common';
 import {TypeOrmModule,TypeOrmModuleOptions } from '@nestjs/typeorm';
 import {MailModule} from "./modules/mail/mail.module";
 import {ConfigModule,ConfigService } from '@nestjs/config';
-
+import { join } from 'path';
 import configuration from './config';
 
 @Module({
@@ -32,10 +33,17 @@ import configuration from './config';
             inject: [ConfigService],
             useFactory: async (config: ConfigService) => ({
                 transport: config.get('mail'),
+                template:{
+                    dir: process.cwd() + '/template/',
+                    adapter: new EjsAdapter(),
+                    options: {
+                        strict: false //严格模式
+                    }
 
+                }
             })
-        })
-
+        }),
+        MailModule
 
     ],
 

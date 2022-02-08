@@ -1,23 +1,22 @@
 db:
   mysql:
-    type: 'mysql',
-    host: 'localhost',
-    port: 3306,
-    username: 'root',
-    password: '123456',
-    database: 'timepost',
-    entities: [],
-    synchronize: true,
-    autoLoadEntities: true,
+    type: 'mysql'
+    host: 'localhost'
+    port: 3306
+    username: 'root'
+    password: '123456'
+    database: 'timepost'
+    entities: []
+    synchronize: true
+    autoLoadEntities: true
 
 # redis 配置
 mail:
-  host: "smtp.163.com",
-  port: 25,
-  ignoreTLS: true,
-  secure: false,
-  auth: {
-    user: "raseluxun@163.com",
+  host: "smtp.163.com"
+  port: 25
+  ignoreTLS: true
+  secure: false
+  auth:
+    user: "raseluxun@163.com"
     pass: "VKUOWCQYLBCURDQQ"
-  },
-  from:'"鲁迅" <raseluxun@163.com>',
+  from: '"鲁迅" <raseluxun@163.com>'

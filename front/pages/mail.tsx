@@ -14,14 +14,35 @@ import Siderr from '../component/Sider'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
 import {getMailsAll} from "../utils/mail"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {timetrans, regEmail} from "../utils/time"
 import {PageSEO} from '../component/PageSeo'
 
 const Home: NextPage = (props: any) => {
     let [dataSource, setData]: any = useState([]);
 
-    dataSource = props.data
+
+
+    useEffect(() => {
+
+        c(1)
+    }, []);
+
+
+    const c = async (currentPage: any) => {
+
+        const {data} = (await getMailsAll()).data
+
+        for (let i in data) {
+            data[i]["time_end"] = timetrans(data[i]["time_end"])
+            data[i]["time_start"] = timetrans(data[i]["time_start"])
+        }
+        setData(data);
+
+    }
+
+
+
 
 
     const {Content} = Layout
@@ -98,21 +119,9 @@ const Home: NextPage = (props: any) => {
 }
 
 export async function getStaticProps() {
-    // Call an external API endpoint to get posts.
-    // You can use any data fetching library
 
-    const {data} = (await getMailsAll()).data
-
-    for (let i in data) {
-        data[i]["time_end"] = timetrans(data[i]["time_end"])
-        data[i]["time_start"] = timetrans(data[i]["time_start"])
-    }
-
-    // By returning { props: { posts } }, the Blog component
-    // will receive `posts` as a prop at build time
     return {
         props: {
-            data,
         },
     }
 }

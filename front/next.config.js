@@ -7,4 +7,5 @@ const semi = require('@douyinfe/semi-next').default({
 });
 module.exports = semi({
   // your custom Next.js configuration
+  trailingSlash: true,
 });

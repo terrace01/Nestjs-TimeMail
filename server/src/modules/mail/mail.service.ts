@@ -59,8 +59,13 @@ export class MailService {
             this.mailerService.sendMail({
                 to: email,
                 from: "raseluxun@163.com",
-                subject: content,
-                text: "222"
+                subject: "hey，一封来自过去的信 - 时光邮局",
+                template:'/mail',
+                context:{
+                    content, //验证码
+                    date, //日期
+                    sign:  '系统邮件,回复无效。' //发送的签名,当然也可以不要
+                }
             })
                 .then(() => {
                     Logger.log("邮件id:" + dto.id + " 状态:发送成功")

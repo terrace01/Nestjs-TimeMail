@@ -29,6 +29,7 @@ import {
     TextArea,
     TagInput,
 } from '@douyinfe/semi-ui';
+import Router from 'next/router' // 导入引入进来的
 import {Editor} from '@tinymce/tinymce-react';
 import {sendMail} from '../utils/mail'
 import {PageSEO} from '../component/PageSeo'
@@ -106,9 +107,6 @@ const Write: NextPage = () => {
         },
     }
 
-    const handleSubmit = (values: any) => {
-        // Toast.info('表单已提交');
-    };
 
     const [mail, setMail] = useState({
         name: '',
@@ -117,7 +115,7 @@ const Write: NextPage = () => {
         type: 0,
         is_public: false
     })
-    const [agree,setAgree] = useState(false)
+
     const [tinymce, setTinymce] = useState('')
 
 
@@ -161,12 +159,16 @@ const Write: NextPage = () => {
             Toast.error("wdnmd 邮箱格式不对")
         } else if (nowdate >= senddate) {
             Toast.error("禁止选择之前的时间")
-        }else if (!agree){
-            Toast.error("请同意(我已阅读并清楚相关规定)")
-        } else {
+        }else {
 
             const {data} = await sendMail(res)
-            if (data.code !== '200') return Toast.error("发送失败")
+            Toast.success("发送成功")
+            Router.push({
+                pathname: '/mail',
+
+            })
+            // if (data.code !== '200') return Toast.error("发送失败")
+            // if (data.code !== '200') return Toast.error("发送失败")
         }
 
     }
@@ -182,9 +184,6 @@ const Write: NextPage = () => {
                         <div className="col-12">
 
                             <Form
-                                // getFormApi={this.getFormApi}
-                                // initValues={initValues}
-                                onSubmit={values => handleSubmit(values)}
                                 style={{padding: 10, width: '100%'}}
                                 onValueChange={(v: any) =>
                                     setMail({
@@ -274,30 +273,20 @@ const Write: NextPage = () => {
                                     </Section>
 
 
-                                    <Row>
-                                        <Col span={24}>
-
-                                            <div suppressHydrationWarning={true}>
-                                                {process.browser &&
-                                                <Fragment>
-                                                    <Checkbox field="agree" value="false" noLabel={true} onChange={(v:any)=>{
-                                                   setAgree(!v) }
-                                                    }>
-                                                        我已阅读并清楚相关规定（I agree）
-                                                    </Checkbox>
-                                                </Fragment>}
-                                            </div>
-
-
-                                        </Col>
-                                    </Row>
                                     <Row type="flex" justify="end">
 
 
-                                        <div><Button onClick={submit} type="primary"
-                                                     htmlType="submit"
-                                                     className="btn-margin-right">提交(Apply)</Button></div>
+                                <div style={{marginTop:'20px'}}>
+                                    <Col span={24}>
 
+
+                                        <Button onClick={submit} type="primary"
+                                                htmlType="submit"
+                                                className="btn-margin-right">提交(Apply)</Button>
+
+                                    </Col>
+
+                                </div>
 
                                     </Row>
                                 </Card>
