@@ -1,6 +1,6 @@
 import type {NextPage} from 'next'
 
-import {Layout, Nav, Button, Breadcrumb, Skeleton, Avatar, Table} from '@douyinfe/semi-ui';
+import {Layout, Nav, Button, Breadcrumb, Skeleton, Avatar, Table,Card} from '@douyinfe/semi-ui';
 import {
     IconBell,
     IconHelpCircle,
@@ -10,17 +10,15 @@ import {
     IconLive,
     IconSetting
 } from '@douyinfe/semi-icons';
-import Siderr from '../component/Sider'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
 import {getMailsAll} from "../utils/mail"
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {timetrans, regEmail} from "../utils/time"
 import {PageSEO} from '../component/PageSeo'
 
 const Home: NextPage = (props: any) => {
     let [dataSource, setData]: any = useState([]);
-
 
 
     useEffect(() => {
@@ -40,9 +38,6 @@ const Home: NextPage = (props: any) => {
         setData(data);
 
     }
-
-
-
 
 
     const {Content} = Layout
@@ -79,41 +74,43 @@ const Home: NextPage = (props: any) => {
         {
             title: '状态',
             dataIndex: 'type',
-            // render: (text: string, record: any, index: number) => {
-            //
-            //     if (text == '0') {
-            //         return <Button theme='solid' type='tertiary' style={{marginRight: 8}}>等待发送</Button>
-            //     } else if (text == '1') {
-            //         return <Button theme='solid' type='primary' style={{marginRight: 8}}>发送成功</Button>
-            //     } else {
-            //         return <Button theme='solid' type='danger' style={{marginRight: 8}}>发送失败</Button>
-            //     }
-            // }
+            render: (text: string, record: any, index: number) => {
+
+                if (text == '0') {
+                    return <Button theme='solid' type='tertiary' style={{marginRight: 8}}>等待发送</Button>
+                } else if (text == '1') {
+                    return <Button theme='solid' type='primary' style={{marginRight: 8}}>发送成功</Button>
+                } else {
+                    return <Button theme='solid' type='danger' style={{marginRight: 8}}>发送失败</Button>
+                }
+            }
         },
     ];
 
     return (
         <>
             <PageSEO title={"邮件列表 - 时光邮局"} description={"邮件列表 - 时光邮局"}/>
+
             <Layout>
+
                 <Header/>
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            <div
-                                style={{
+                            <div style={{padding:'10px', width: "100%"}}>
 
-                                    padding: '10px',
-                                }}
-                            >
-
-                                <div><Table columns={columns} dataSource={dataSource}/></div>
+                                <Card>
+                                    <Table columns={columns} dataSource={dataSource}/>
+                                </Card>
                             </div>
+
                         </div>
                     </div>
                 </div>
                 <Footer/>
             </Layout>
+
+
         </>
     )
 }
@@ -121,8 +118,7 @@ const Home: NextPage = (props: any) => {
 export async function getStaticProps() {
 
     return {
-        props: {
-        },
+        props: {},
     }
 }
 

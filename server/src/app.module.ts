@@ -23,7 +23,7 @@ import configuration from './config';
                     type: 'mysql',
                     entities: ['dist/**/*.entity{.ts,.js}'],
                     keepConnectionAlive: true,
-                    ...config.get('db.mysql'),
+                    ...config.get('mysql'),
                 } as TypeOrmModuleOptions;
             },
         }),

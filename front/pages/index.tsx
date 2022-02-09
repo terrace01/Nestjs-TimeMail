@@ -24,59 +24,73 @@ import {
     IconLive,
     IconSetting,
 } from '@douyinfe/semi-icons';
-import Siderr from '../component/Sider'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
 import {PageSEO} from '../component/PageSeo'
 import {useState} from "react";
 import {timetrans} from "../utils/time"
-import {IllustrationConstruction, IllustrationConstructionDark} from '@douyinfe/semi-illustrations';
-
+import { IllustrationNoContent, IllustrationNoContentDark } from '@douyinfe/semi-illustrations';
 const Home: NextPage = (y) => {
     const {Content} = Layout
-    const {Title} = Typography;
+    const {Title,Paragraph} = Typography;
 
     return (
 
         <>
             <PageSEO title={"时光邮局 - TimePost"} description={"时光邮局"}/>
             <Layout>
-
-
                 <Header/>
-                <div className="grid grid-flex">
-                    <Row type="flex" justify="center">
-                        <Col span={12}>
-                            <Content
-                                style={{
-                                    padding: '24px',
-                                    backgroundColor: 'var(--semi-color-bg-0)',
-                                }}
-                            >
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
 
-                                <br/> <br/>
-                                <Title style={{margin: '8px 0'}}>花有重开日 人无再少年</Title>
 
-                                <br/> <br/>
+                          <div    style={{
+                              padding: '24px',
+                              backgroundColor: 'var(--semi-color-bg-0)',
+                          }}>
+                              <Card>
 
-                                <iframe style={{
-                                    width: '100%',
-                                    height: '600px',
-                                    border: '0'
 
-                                }} src="//player.bilibili.com/player.html?aid=680968412" scrolling="no">
+                                  <Title style={{margin: '8px 0'}}>花有重开日 人无再少年</Title>
 
-                                </iframe>
-                            </Content>
 
-                        </Col>
+                                  <div>
+                                    <img src="/bg.jpg" alt="" style={{width:'100%'}}/>
+                                </div>
 
-                    </Row>
+                                      <br/> <br/>
 
+                                <div>
+                                    <Paragraph style={{textAlign:'center'}}>
+                                        写给我自己<br />
+                                        也许有一天，我已经渐渐老去<br />
+                                        也许有一天，<br />
+                                        我不再坚持我曾坚持的，<br />
+                                        不再爱我曾深爱的<br />
+                                        不再恨我所痛恨的<br />
+                                        也许有一天，<br />
+                                        突然发现邮箱中<br />
+                                        多了一封信<br />
+                                        曾经的自己<br />
+                                        写给未来的自己<br />
+                                        仿佛瞬间，<br />
+                                        穿越时间，<br />
+                                        看到了，十年前，<br />
+                                        那个年轻的自己，<br />
+                                        微笑地打着招呼——<br />
+                                        “你，还好么？<br />
+                                        我，好好么？”    <br />                              </Paragraph>
+                                </div>
+                                  <br />
+
+                              </Card>
+                          </div>
+                        </div>
+                    </div>
                 </div>
                 <Footer/>
             </Layout>
-
         </>
 
     )

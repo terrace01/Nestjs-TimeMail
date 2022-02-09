@@ -10,7 +10,6 @@ import {
     IconLive,
     IconSetting
 } from '@douyinfe/semi-icons';
-import Siderr from '../component/Sider'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
 import React, {Fragment, useState} from "react";
@@ -28,6 +27,7 @@ import {
     Form,
     TextArea,
     TagInput,
+    Banner
 } from '@douyinfe/semi-ui';
 import Router from 'next/router' // 导入引入进来的
 import {Editor} from '@tinymce/tinymce-react';
@@ -54,7 +54,7 @@ const Write: NextPage = () => {
         Slider,
         Rating,
         Switch,
-        TagInput
+        TagInput,
     } = Form;
     const {Content} = Layout
     const columns = [
@@ -81,7 +81,7 @@ const Write: NextPage = () => {
     ];
     const editorObj = {
         height: '300px',
-
+        language_url : '/tinymce/js/tinymce/langs/zh_CN.js',
         language: 'zh_CN',
         // skin_url: 'tinymce/skins/ui/oxide',
         content_style: '* { padding:0; margin:0; } img {max-width:100% !important }',
@@ -159,7 +159,7 @@ const Write: NextPage = () => {
             Toast.error("wdnmd 邮箱格式不对")
         } else if (nowdate >= senddate) {
             Toast.error("禁止选择之前的时间")
-        }else {
+        } else {
 
             const {data} = await sendMail(res)
             Toast.success("发送成功")
@@ -191,44 +191,45 @@ const Write: NextPage = () => {
                                     })
                                 }
                             >
+                                <br/>
+                                <Banner
+                                    type="success"
+                                    description="如果不想让自己的信被别人看到，可以勾选 “是否公开” 选项"
+                                />
+                                <br/>
                                 <Card>
-                                    <Section text={'胶囊（Fly）'}>
+
+                                    <Section text={'写一封信'}>
                                         <Row>
 
-                                                <Input
-                                                    field="name"
-                                                    label="名称（Input）"
-                                                    trigger='blur'
-                                                >
-                                                </Input>
+                                            <Input
+                                                field="name"
+                                                label="名称（Name）"
+                                                trigger='blur'
+                                            >
+                                            </Input>
 
                                         </Row>
                                         <Row>
 
-                                                <Input
-                                                    field="email"
-                                                    label="邮箱（Email）"
-                                                    trigger='blur'
+                                            <Input
+                                                field="email"
+                                                label="邮箱（Email）"
+                                                trigger='blur'
 
-                                                >
-                                                </Input>
+                                            >
+                                            </Input>
 
                                         </Row>
 
                                         <Row>
                                             <Col span={12}>
 
-                                                {/*https://github.com/yjose/reactjs-popup/issues/215*/}
-                                                <div suppressHydrationWarning={true}>
-                                                    {process.browser &&
-                                                    <Fragment>
 
 
-                                                        <DatePicker type="dateTime" label='日期（SendTime)'
-                                                                    field="time_end"/>
+                                                <DatePicker type="dateTime" label='日期（SendTime)'
+                                                            field="time_end"/>
 
-                                                    </Fragment>}
-                                                </div>
 
                                             </Col>
 
@@ -239,16 +240,9 @@ const Write: NextPage = () => {
                                             <Col span={12}>
 
                                                 {/*https://github.com/yjose/reactjs-popup/issues/215*/}
-
-                                                <div suppressHydrationWarning={true}>
-                                                    {process.browser &&
-                                                    <Fragment>
-                                                        <Checkbox field="is_public" noLabel={true}
-                                                                  extra='选中后, 信的内容将在 公开信 中展示, 所有人都可以浏览和评论'
-                                                        >是否公开</Checkbox>
-
-                                                    </Fragment>}
-                                                </div>
+                                                <Checkbox field="is_public" noLabel={true}
+                                                          extra='选中后, 信的内容将在 公开信 中展示, 所有人都可以浏览和评论'
+                                                >是否公开</Checkbox>
                                             </Col>
                                         </Row>
 
@@ -261,6 +255,8 @@ const Write: NextPage = () => {
                                                     }}
                                                     id="tiny"
                                                     inline={false}  // false：经典编辑模式；true:行内编辑模式
+                                                    tinymceScriptSrc={'/tinymce/js/tinymce/tinymce.min.js'}
+
                                                     apiKey='vnpn1q20ecyjyluk0ffkf2cprue1doeigvxnjhb9xkznwflx'
                                                     init={{
                                                         ...editorObj
@@ -276,17 +272,17 @@ const Write: NextPage = () => {
                                     <Row type="flex" justify="end">
 
 
-                                <div style={{marginTop:'20px'}}>
-                                    <Col span={24}>
+                                        <div style={{marginTop: '20px'}}>
+                                            <Col span={24}>
 
 
-                                        <Button onClick={submit} type="primary"
-                                                htmlType="submit"
-                                                className="btn-margin-right">提交(Apply)</Button>
+                                                <Button onClick={submit} type="primary"
+                                                        htmlType="submit"
+                                                        className="btn-margin-right">提交(Apply)</Button>
 
-                                    </Col>
+                                            </Col>
 
-                                </div>
+                                        </div>
 
                                     </Row>
                                 </Card>
@@ -296,7 +292,7 @@ const Write: NextPage = () => {
                         </div>
                     </div>
                 </div>
-
+                <Footer/>
             </Layout>
         </>
     )

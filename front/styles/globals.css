@@ -29,7 +29,11 @@ a {
   .semi-navigation-footer{
     display: none;
   }
+
+  .foot div  span:nth-child(2)  {
+    display: none;}
 }
+
 
 .row {
   --bs-gutter-x: 1.5rem;

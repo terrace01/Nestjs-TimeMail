@@ -22,7 +22,7 @@ export class MailService {
         const [result, total] = await this.MailRepository.findAndCount(
             {
                 where: {is_public:1 }, order: { time_start: "DESC" },
-                take: 2,
+                take: 8,
                 skip: skip
             }
         );

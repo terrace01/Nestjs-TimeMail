@@ -24,7 +24,6 @@ import {
     IconLive,
     IconSetting
 } from '@douyinfe/semi-icons';
-import Siderr from '../component/Sider'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
 import {PageSEO} from '../component/PageSeo'
@@ -37,8 +36,6 @@ const Public: NextPage = (props: any) => {
     const [loading, setLoading] = useState(true);
     let [dataSource, setData]: any = useState([]);
     const {Content} = Layout
-    const {Meta} = Card;
-    const {Title, Paragraph, Image} = Skeleton;
 
 
     return (
@@ -49,22 +46,31 @@ const Public: NextPage = (props: any) => {
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            <Collapse accordion>
-                                {
-                                    questionData.map((item: any, index: any) => {
-                                        return <>
 
 
-                                            <Collapse.Panel header={item.title} itemKey={index}>
-                                                <p>{item.content}</p>
-                                            </Collapse.Panel>
+                            <div style={{padding: '10px', width: "100%"}}>
+                                <Card>
+                                    <img src="/bg.jpg" alt="" style={{width: '100%'}}/>
+                                    <Collapse accordion>
+                                        {
+                                            questionData.map((item: any, index: any) => {
+                                                return <>
 
 
-                                        </>
-                                    })
-                                }
-                            </Collapse>
+                                                    <Collapse.Panel header={item.title} itemKey={index}>
 
+                                                        <p
+                                                            dangerouslySetInnerHTML={{__html: item.content}}/>
+                                                    </Collapse.Panel>
+
+
+                                                </>
+                                            })
+                                        }
+                                    </Collapse>
+                                </Card>
+
+                            </div>
                         </div>
                     </div>
                 </div>

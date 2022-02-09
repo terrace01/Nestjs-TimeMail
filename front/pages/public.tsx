@@ -24,7 +24,6 @@ import {
     IconLive,
     IconSetting
 } from '@douyinfe/semi-icons';
-import Siderr from '../component/Sider'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
 import {getMailBySkip} from "../utils/mail"
@@ -51,7 +50,7 @@ const Public: NextPage = (props: any) => {
 
         setPage(currentPage);
         console.log(currentPage)
-        const {data} = (await getMailBySkip((currentPage * 2) - 2)).data
+        const {data} = (await getMailBySkip((currentPage * 8) - 8)).data
         for (let i in data.result) {
             data.result[i]["time_end"] = timetrans(data.result[i]["time_end"])
             data.result[i]["time_start"] = timetrans(data.result[i]["time_start"])
@@ -143,7 +142,7 @@ const Public: NextPage = (props: any) => {
                             </div>
                             <Pagination
                                 total={total}
-                                pageSize={2}
+                                pageSize={8}
                                 currentPage={page}
 
                                 onPageChange={onPageChange}>
