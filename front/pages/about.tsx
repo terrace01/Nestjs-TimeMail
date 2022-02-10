@@ -31,7 +31,6 @@ import {useEffect, useMemo, useState} from "react";
 import {timetrans} from "../utils/time"
 import questionData from '../utils/question'
 import axios from '../utils/axios';
-
 const Public: NextPage = (props: any) => {
     const [loading, setLoading] = useState(true);
     let [dataSource, setData]: any = useState([]);
@@ -50,7 +49,8 @@ const Public: NextPage = (props: any) => {
 
                             <div style={{padding: '10px', width: "100%"}}>
                                 <Card>
-                                    <img src="/bg.jpg" alt="" style={{width: '100%'}}/>
+
+
                                     <Collapse accordion>
                                         {
                                             questionData.map((item: any, index: any) => {

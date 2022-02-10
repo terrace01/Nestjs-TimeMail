@@ -1366,3 +1366,5 @@ a {
     --bs-gutter-y: 3rem;
   }
 }
+.box .row div{
+  padding:50px;}
