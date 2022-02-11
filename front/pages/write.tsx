@@ -80,6 +80,7 @@ const Write: NextPage = () => {
         }
     ];
     const editorObj = {
+
         height: '300px',
         language_url : '/tinymce/js/tinymce/langs/zh_CN.js',
         language: 'zh_CN',
@@ -200,7 +201,8 @@ const Write: NextPage = () => {
                                 <Card>
 
                                     <Section text={'写一封信'}>
-                                        <Row>
+                                        <Row >
+                                            <Col xs={24} xl={12}>
 
                                             <Input
                                                 field="name"
@@ -209,42 +211,33 @@ const Write: NextPage = () => {
                                             >
                                             </Input>
 
-                                        </Row>
-                                        <Row>
 
-                                            <Input
-                                                field="email"
-                                                label="邮箱（Email）"
-                                                trigger='blur'
+                                                <Input
+                                                    field="email"
+                                                    label="邮箱（Email）"
+                                                    trigger='blur'
 
-                                            >
-                                            </Input>
-
-                                        </Row>
-
-                                        <Row>
-                                            <Col span={12}>
+                                                >
+                                                </Input>
 
 
 
                                                 <DatePicker type="dateTime" label='日期（SendTime)'
-                                                            field="time_end"/>
+                                                            field="time_end" density="compact"/>
 
-
-                                            </Col>
-
-                                        </Row>
-
-                                        <Row>
-
-                                            <Col span={12}>
 
                                                 {/*https://github.com/yjose/reactjs-popup/issues/215*/}
                                                 <Checkbox field="is_public" noLabel={true}
                                                           extra='选中后, 信的内容将在 公开信 中展示, 所有人都可以浏览和评论'
                                                 >是否公开</Checkbox>
+
                                             </Col>
+
+
+
+
                                         </Row>
+
 
                                         <Row>
                                             <Col span={24}>

@@ -29,7 +29,6 @@ import Footer from '../component/Footer'
 import {getMailBySkip} from "../utils/mail"
 import {useEffect, useMemo, useState} from "react";
 import {timetrans} from "../utils/time"
-import * as dayjs from 'dayjs'
 import axios from '../utils/axios';
 
 const Public: NextPage = (props: any) => {
@@ -49,7 +48,6 @@ const Public: NextPage = (props: any) => {
     const onPageChange = async (currentPage: any) => {
 
         setPage(currentPage);
-        console.log(currentPage)
         const {data} = (await getMailBySkip((currentPage * 8) - 8)).data
         for (let i in data.result) {
             data.result[i]["time_end"] = timetrans(data.result[i]["time_end"])
@@ -79,11 +77,9 @@ const Public: NextPage = (props: any) => {
                                 <div className="mail">
 
                                     {
-                                        dataSource.map((item: any, index: any) => {
-                                            return <>
-
-                                                <Card
-                                                    key={item.id}
+                                        dataSource.map((item: any, index: number) => {
+                                            return  <Card
+                                                    key={index}
                                                     title={
                                                         <Meta
                                                             title={
@@ -135,7 +131,6 @@ const Public: NextPage = (props: any) => {
                                                          dangerouslySetInnerHTML={{__html: item.content}}/>
                                                 </Card>
 
-                                            </>
                                         })
                                     }
                                 </div>

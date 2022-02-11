@@ -110,13 +110,22 @@ const Home: NextPage = (y) => {
 
 
                                 </Empty>
-                              <div style={{marginBottom:'20px'}}>
-                                  <Steps current={1}>
-                                      <Steps.Step title="写一封信" description="write a mail"/>
-                                      <Steps.Step title="忘记时间" description="waiting for time"/>
-                                      <Steps.Step title="接收" description="receive"/>
-                                  </Steps>
+                              <div className="steps" style={{marginBottom:'20px'}}>
 
+
+
+                                  <Row gutter={{xs:16,sm:16,md:16,lg:24,xl:24,xxl:24}}>
+
+                                      <Col xs={16} sm={16} md={16} lg={24} xl={24}>
+                                              <Steps current={1}>
+                                              <Steps.Step title="写一封信" description="write a mail"/>
+                                          <Steps.Step title="忘记时间" description="waiting for time"/>
+                                          <Steps.Step title="接收" description="receive"/>
+
+
+                                              </Steps>
+                                     </Col>
+                                  </Row>
                               </div>
 
 

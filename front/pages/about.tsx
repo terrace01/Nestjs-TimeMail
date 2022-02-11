@@ -53,18 +53,14 @@ const Public: NextPage = (props: any) => {
 
                                     <Collapse accordion>
                                         {
-                                            questionData.map((item: any, index: any) => {
-                                                return <>
-
-
-                                                    <Collapse.Panel header={item.title} itemKey={index}>
+                                            questionData.map((item: any, index: number) => {
+                                                return <Collapse.Panel header={item.title} itemKey={index + ''} key={index}>
 
                                                         <p
                                                             dangerouslySetInnerHTML={{__html: item.content}}/>
                                                     </Collapse.Panel>
 
 
-                                                </>
                                             })
                                         }
                                     </Collapse>

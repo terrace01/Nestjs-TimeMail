@@ -13,7 +13,7 @@ const Home: NextPage = () => {
                 justifyContent: 'space-between',
                 padding: '20px',
                 color: '#fff',
-                backgroundColor: '#1c1f23;',
+                backgroundColor: 'rgba(var(--semi-grey-9), 1)',
             }}
         >
             <div className="container">
