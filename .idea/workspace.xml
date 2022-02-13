@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8205960a-8ab7-4d3a-9d99-5b27ed9dbc29" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/front/styles/mobile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/out.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/pages/_app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/styles/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,6 +18,7 @@
       <list>
         <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -43,6 +47,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/front/public" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="ts.external.directory.path" value="D:\Program Files (x86)\WebStorm 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -104,6 +109,8 @@
       <workItem from="1644400721694" duration="8382000" />
       <workItem from="1644488790131" duration="7695000" />
       <workItem from="1644571386881" duration="8463000" />
+      <workItem from="1644667497064" duration="875000" />
+      <workItem from="1644750730987" duration="48000" />
     </task>
     <servers />
   </component>

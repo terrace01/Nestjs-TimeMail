@@ -1,0 +1,21 @@
+@media screen and (max-width: 768px) {
+
+    .semi-navigation-list-wrapper{
+        width: 160px;
+        overflow: auto;
+    }
+    .semi-navigation-footer{
+        display: none;
+    }
+
+    .foot div  span:nth-child(2)  {
+        display: none;}
+
+    .steps{
+        display: none;
+    }
+    .nav ul li {
+        flex: 1 1 auto;
+        margin-left: 0px !important;
+    }
+}
