@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8205960a-8ab7-4d3a-9d99-5b27ed9dbc29" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/front/styles/mobile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/out.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/styles/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +106,8 @@
       <workItem from="1644488790131" duration="7695000" />
       <workItem from="1644571386881" duration="8463000" />
       <workItem from="1644667497064" duration="875000" />
-      <workItem from="1644750730987" duration="48000" />
+      <workItem from="1644750730987" duration="84000" />
+      <workItem from="1644837203419" duration="950000" />
     </task>
     <servers />
   </component>

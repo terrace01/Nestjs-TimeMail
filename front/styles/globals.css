@@ -17,6 +17,11 @@ a {
   padding: 0;
   box-sizing: border-box;
 }
+
+.mail > div{
+  margin-bottom: 20px;
+}
+
 .nav{
   padding:20px;
 
@@ -35,9 +40,7 @@ a {
 
 }
 
-.mail > div{
-  margin-bottom: 20px;
-}
+
 .active{
   display: block;
   font-weight: 700;
